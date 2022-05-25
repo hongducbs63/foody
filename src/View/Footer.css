@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.end {
+    background: #333;
+}
+
+.footer-center {
+    color: #9c9c9c;
+}
+
+.container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container:before,
+.container:after {
+    content: " ";
+    display: table;
+}
+
+.footer-center-wrap {
+
+    padding: 50px 30px 10px;
+    border-top: 1px solid #3D3D3D;
+    border-bottom: 1px solid #3D3D3D;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-left: -9px;
+    margin-right: -9px;
+}
+
+.item {
+    /* width: 23%; */
+    flex: 1;
+}
+
+.block_aboutshop .about {
+    padding: 10px 10px 10px 0px;
+    line-height: 20px;
+}
+
+.toggle-footer li a {
+    -webkit-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+    display: block;
+    font-size: 12px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.fa-phone:before {
+    content: "\f095";
+    padding-right: 10px;
+}
+
+.fa-envelope:before {
+    padding-right: 10px;
+    content: "\f0e0";
+}
+
+.fa-location-pin:before,
+.fa-map-marker:before {
+    content: "\f041";
+    padding-right: 10px;
+
+}
+
+#powered {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+#powered .paypal {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+    color: white;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+#powered a {
+    color: #f8694d;
+}
+
+a {
+    padding: 5px 0;
+    color: #828282;
+    text-decoration: none;
+    background: transparent;
+}
+
+#powered .paypal img {
+    margin: 0 auto;
+}
+
+.img-responsive {
+    display: inline-block;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+img {
+    border: 0;
+}
+
+.footer-bottom-wrap {
+    background: #333;
+    padding: 20px 0 25px;
+    text-align: center;
+}
+
+.container:after {
+    clear: both;
+}
+
+.container:before,
+.container:after {
+    content: " ";
+    display: table;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
