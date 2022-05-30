@@ -4,6 +4,10 @@ import './Sanpham.css'
 import { Link } from 'react-router-dom'
 function SanPham(props) {
     const { sanpham } = props
+    const HandleOnClickSort = (e) => {
+        console.log(e.target.value);
+        props.CheckGia(e.target.value)
+    }
     return (
         <div>
             <main className="danhsach-sanpham noidung-trang">
@@ -39,11 +43,12 @@ function SanPham(props) {
                             </div>
                             <div className="boloc">
                                 <div className="sapxep">
-                                    <select className="form-control" name id>
-                                        <option>Giá cao đến thấp</option>
-                                        <option>Giá thấp đến cao</option>
-                                        <option>Ký tự a-z</option>
-                                        <option>Ký tự z-a</option>
+                                    <select className="form-control" name id onChange={(e) => HandleOnClickSort(e)}>
+                                        <option value='' >---Chọn---</option>
+                                        <option value='cao' >Giá cao đến thấp</option>
+                                        <option value='thap' >Giá thấp đến cao</option>
+                                        <option value='chutang'>Ký tự a-z</option>
+                                        <option value='chugiam'>Ký tự z-a</option>
                                     </select>
                                 </div>
                                 <div className="timtheoten">

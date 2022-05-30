@@ -21,7 +21,7 @@ function DoUongItem(props) {
                             <Link to={`/chitietsanpham/douong/${sanphamItem.id}`} >
                                 <div className="sanpham" >
                                     <div className="yeuthich">Yêu thích</div>
-                                    <div className="giamgia">46%</div>
+                                    <div className="giamgia">{sanphamItem.giamgia}%</div>
                                     <img src={sanphamItem.avatar} alt="" className="anhdaidien" />
                                     <div className="noidung">
                                         <p className="ten">{sanphamItem.name}</p>
@@ -30,7 +30,7 @@ function DoUongItem(props) {
                                                 <p className="gia">{parseInt(sanphamItem.Gia).toLocaleString('vi-VN')}đ</p>
                                             </div>
                                             <div className="phan">
-                                                <p className="daban">đã bán 31</p>
+                                                <p className="daban">đã bán {sanphamItem.daban}</p>
                                             </div>
                                         </div>
                                     </div>

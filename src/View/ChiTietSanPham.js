@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 // import './_chitietsanpham.scss'
 function ChiTietSanPham(props) {
     const { sanpham } = props;
@@ -8,38 +8,86 @@ function ChiTietSanPham(props) {
     const { id } = useParams();
     // console.log(id);
     const [chitiet, setChitiet] = useState({});
-    // const [check, setCheck] = useState([])
+
+    const [check, setCheck] = useState([])
+    let navigate = useNavigate();
     useEffect(() => {
         const chitieta = sanpham.filter(x => x.id == id)[0];
         // console.log(chitieta);
         // if(chitieta.)
         console.log(chitieta);
         // if(chitieta.soluong)
-        console.log(chitieta.soluong);
+        console.log(chitieta?.soluong);
         setChitiet({ ...chitieta });
     }, [])
-    const HienThi = () => {
-        async function postData(url, data) {
-            // Default options are marked with *
-            const response = await fetch(url, {
-                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, *cors, same-origin
-                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                credentials: 'same-origin', // include, *same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                redirect: 'follow', // manual, *follow, error
-                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                body: JSON.stringify(data) // body data type must match "Content-Type" header
-            });
-            return response.json(); // parses JSON response into native JavaScript objects
+    useEffect(() => {
+        // effect()
+        // setDathang([JSON.parse(localStorage.getItem('id1'))])
+
+    }, [])
+    // async function effect() {
+    //     let json = await axios.get("https://6284ff583060bbd34742d2f3.mockapi.io/giohang")
+    //     setCheck(json.data);
+    //     console.log(json.data);
+    // }
+    const HienThi = (chitiet) => {
+        // if (check.find(c => c.id == id)) {
+        //     const requestOptions = {
+        //         method: 'PUT',
+        //         headers: { 'Content-Type': 'application/json' },
+        //         body: JSON.stringify({
+        //             soluong: parseInt(chitiet.soluong) + 1
+        //             // Gia: parseInt(dathangy.Gia).
+        //         })
+        //     };
+        //     fetch(`https://6284ff583060bbd34742d2f3.mockapi.io/giohang/${id}`, requestOptions)
+        //         .then(response => {
+        //             console.log('sdjfdsbfsd', parseInt(chitiet.soluong) + 1);
+        //             return navigate('/giohang')
+        //         })
+        // }
+        // else {
+        //     async function postData(url, data) {
+        //         // Default options are marked with *
+        //         const response = await fetch(url, {
+        //             method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //             mode: 'cors', // no-cors, *cors, same-origin
+        //             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //             credentials: 'same-origin', // include, *same-origin, omit
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+        //             },
+        //             redirect: 'follow', // manual, *follow, error
+        //             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //             body: JSON.stringify(data) // body data type must match "Content-Type" header
+        //         });
+        //         return response.json(); // parses JSON response into native JavaScript objects
+        //     }
+
+        //     postData('https://6284ff583060bbd34742d2f3.mockapi.io/giohang', chitiet)
+
+        //     console.log('san[hasnhdsbfchsd');
+        // }
+        var giohang = JSON.parse(localStorage.getItem('giohang'));
+        if (giohang) {
+            let ok = 0;
+            giohang.forEach((product) => {
+                if (product.name === chitiet.name) {
+                    ok = 1;
+                    product.soluong = parseInt(product.soluong) + 1
+                }
+            })
+            if (ok == 0) {
+                giohang.push(chitiet);
+
+            }
+        } else {
+            giohang = [chitiet];
         }
-
-        postData('https://6284ff583060bbd34742d2f3.mockapi.io/giohang', chitiet)
-
-        console.log('san[hasnhdsbfchsd');
+        localStorage.setItem("giohang", JSON.stringify(giohang));
+        console.log(JSON.parse(localStorage.getItem('giohang')));
+        return navigate('/giohang')
     }
 
     return (
@@ -103,7 +151,7 @@ function ChiTietSanPham(props) {
                         </div>
                         <div className="box-nut">
                             {/* <button className="nut-them nut">Thêm vào giỏ hàng</button> */}
-                            <Link to="/giohang" className="nut-muangay nut" onClick={() => HienThi()}  >Thêm vào giỏ hàng</Link>
+                            <button className="nut-muangay nut" onClick={() => HienThi(chitiet)}  >Thêm vào giỏ hàng</button >
                         </div>
                         <hr />
                         <p>Leo Food chúc quý khách ngon miếng</p>

@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.box-hoadon-baoquanh {
+    background-color: #ffb242;
+}
+
+.box-hoadon {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    /* background-color: #498ee4; */
+}
+
+.hoadon {
+    font-family: lato, 'helvetica-light';
+    padding: 20px 60px;
+    background-color: #498ee4;
+    border-radius: 4px;
+}
+
+.hoadonkh {
+    font-size: 20px;
+    color: #fff;
+    padding: 4px 0;
+}
+
+.hoadonchitiet {
+    font-size: 20px;
+    min-width: 150px;
+    display: inline-block;
+}

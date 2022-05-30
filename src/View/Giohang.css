@@ -1,0 +1,18 @@
+.dathang {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    margin-top: 10px;
+}
+
+.thanhtien {
+
+    margin: 0 70px;
+}
+
+.tongtien {
+    font-size: 16px;
+    /* font-weight: bold; */
+    color: red;
+}

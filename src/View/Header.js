@@ -4,8 +4,8 @@ import Trangchu from './Trangchu'
 
 function Header(props) {
     const { name } = props
-    console.log(name);
-    console.log(typeof name);
+    // console.log(name);
+    // console.log(typeof name);
     const [timkiem, setTimKiem] = useState('')
     const [taikhoan, setTaiKhoan] = useState('')
     // document.querySelector('.link-dang-ki').innerHTML = name
@@ -13,9 +13,11 @@ function Header(props) {
     const HandleOnchange = (e) => {
         console.log(e.target.value)
         setTimKiem(e.target.value);
-        props.checkTextSearch(timkiem)
+        console.log(timkiem);
     }
     const HandleClick = () => {
+        props.checkTextSearch(timkiem)
+
         setTimKiem('')
         console.log(timkiem);
     }

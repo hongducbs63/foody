@@ -5,7 +5,7 @@ import ChiTietSanPham from './ChiTietSanPham';
 function SanPhamItem(props) {
     // console.log(props.sanpham);
     const { sanpham } = props;
-    console.log(sanpham);
+    // console.log(sanpham);
     // console.log(sanpham.name);
     // const [chitietsanpham, setChitietsanpham] = useState({})
     // const HandleCLick = (sanphamItem) => {
@@ -21,7 +21,7 @@ function SanPhamItem(props) {
                             <Link to={`/chitietsanpham/${sanphamItem.id}`} >
                                 <div className="sanpham" >
                                     <div className="yeuthich">Yêu thích</div>
-                                    <div className="giamgia">46%</div>
+                                    <div className="giamgia">{sanphamItem.giamgia}%</div>
                                     <img src={sanphamItem.avatar} alt="" className="anhdaidien" />
                                     <div className="noidung">
                                         <p className="ten">{sanphamItem.name}</p>
@@ -30,7 +30,7 @@ function SanPhamItem(props) {
                                                 <p className="gia">{parseInt(sanphamItem.Gia).toLocaleString('vi-VN')}đ</p>
                                             </div>
                                             <div className="phan">
-                                                <p className="daban">đã bán 31</p>
+                                                <p className="daban">đã bán {sanphamItem.daban}</p>
                                             </div>
                                         </div>
                                     </div>

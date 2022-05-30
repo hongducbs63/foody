@@ -1,12 +1,12 @@
 import React from 'react'
-
+import './HienThiGioHang.css'
 function HienThiGioHang() {
     return (
         <div>
             <div className="tieude-trang">
                 Giỏ hàng
             </div>
-            <div className="phanphai">
+            {/* <div className="phanphai">
                 <div className="box-thanhtoan">
                     <h4 className="tieude">Thông tin đơn hàng</h4>
                     <p className="tongtien">
@@ -26,7 +26,7 @@ function HienThiGioHang() {
                     </div>
                     <button className="dathang nut">Đặt Hàng</button>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

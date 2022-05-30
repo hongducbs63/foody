@@ -7,7 +7,7 @@ function DangKi() {
             <div className="container-sing-in" id="container">
                 <div className="form-container-sing-in sign-in-container">
                     <form action="#">
-                        <h1>Sign in</h1>
+                        <h1>Sign Up</h1>
                         <div className="social-container">
                             <a href="#" className="social"><i className="fab fa-facebook-f" /></a>
                             <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
@@ -19,7 +19,7 @@ function DangKi() {
                         <a href="#">Forgot your password?</a>
                         <Link to='/dangnhap'>
                             <button className='button-sing-in'>
-                                Sign In
+                                Sign Up
                             </button>
                         </Link>
 

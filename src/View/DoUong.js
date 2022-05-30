@@ -10,10 +10,10 @@ function DoUong(props) {
     const HandleOnchange = (e) => {
         console.log(e.target.value)
         setTimKiem(e.target.value);
-        props.checkTextSearchDoUong(timkiem)
 
     }
     const HandleOnclick = () => {
+        props.checkTextSearchDoUong(timkiem)
         setTimKiem('')
     }
     return (

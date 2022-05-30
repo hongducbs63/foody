@@ -18,6 +18,10 @@ import Banhmi from './View/Banhmi';
 import DoUong from './View/DoUong';
 import DangKi from './View/DangKi';
 import DangNhap from './View/DangNhap';
+import ThanhToan from './View/ThanhToan';
+import HienThiThanhToan from './View/HienThiThanhToan';
+import TongTien from './View/TongTien';
+import HoaDon from './View/HoaDon';
 
 function App() {
   const [hienthi, setHienThi] = useState('');
@@ -27,6 +31,9 @@ function App() {
   const [sanPham, setSanPham] = useState([]);
   const [douong, setDouong] = useState([]);
   const [name, setName] = useState('')
+  const [diachi, setDiachi] = useState('')
+  const [sdt, setSdt] = useState('')
+  const [gia, setGia] = useState('')
   console.log(sanPham);
   // console.log(typeof sanPham[12].Gia);
   // const dulieu = [];
@@ -58,20 +65,59 @@ function App() {
     setHienThiDoUong(dl)
     console.log('du lieu' + dl);
   }
+  const SortGia = (dl) => {
+    setGia(dl)
+    console.log(dl);
+  }
   const getName = (dl) => {
     setName(dl)
     console.log(dl);
   }
+  const getAddress = (dl) => {
+    setDiachi(dl)
+    console.log(dl);
+  }
+  const getSdt = (dl) => {
+    setSdt(dl)
+    console.log(dl);
+  }
   useEffect(() => {
-    console.log(sanPham);
+    console.log(gia);
+    if (gia.includes('thap')) {
+      console.log(typeof sanPham[1].Gia);
+      let sortgia = sanPham.sort((a, b) => {
+        console.log('cao đến thấp');
+        return parseInt(a.Gia) - parseInt(b.Gia);
+      })
+      console.log(sortgia);
+      setSanPham([...sortgia]);
+    }
+    else if (gia === 'cao') {
+      let sortgia = sanPham.sort((a, b) => {
+        console.log('gia thap den cao');
+        return parseInt(b.Gia) - parseInt(a.Gia);
+      })
+      setSanPham([...sortgia]);
+    }
+    else if (gia === 'chutang') {
+      const sortTen = sanPham.sort((a, b) => (a.name > b.name) ? 1 : -1)
+      setSanPham([...sortTen])
+    }
+    else if (gia === 'chugiam') {
+      const sortTen = sanPham.sort((a, b) => (b.name > a.name) ? 1 : -1);
+      setSanPham([...sortTen])
+    }
+  }, [gia])
+  useEffect(() => {
+    // console.log(sanPham);
 
     const kq = data.filter((item) => {
       return item.name.toLowerCase().includes(hienthi.toLowerCase())
 
     })
-    console.log(sanPham);
+    // console.log(sanPham);
 
-    console.log(kq);
+    // console.log(kq);
     setSanPham(kq)
   }, [hienthi]);
   useEffect(() => {
@@ -80,8 +126,6 @@ function App() {
       return item.name.toLowerCase().includes(hienthidouong.toLowerCase())
 
     })
-
-    console.log(kq);
     setDouong(kq)
   }, [hienthidouong]);
   return (
@@ -93,15 +137,25 @@ function App() {
         <Route path="/dangki" element={<DangKi></DangKi>}></Route>
         <Route path="/dangnhap" element={<DangNhap getNameSignUp={(dl) => getName(dl)}></DangNhap>}></Route>
         <Route path="/trangchu" element={<Trangchu></Trangchu>}></Route>
-        <Route path="/sanpham" element={<SanPham sanpham={sanPham}></SanPham>}></Route>
+        <Route path="/" element={<Trangchu></Trangchu>}></Route>
+        <Route path="/sanpham" element={<SanPham sanpham={sanPham} CheckGia={(dl) => SortGia(dl)}></SanPham>}></Route>
         <Route path="/chitietsanpham/:id" element={<ChiTietSanPham sanpham={sanPham}></ChiTietSanPham>}></Route>
         <Route path="/chitietsanpham/douong/:id" element={<ChiTietSanPham sanpham={douong}></ChiTietSanPham>}></Route>
         <Route path="/giohang" element={
           <div>
-            {/* <HienThiGioHang></HienThiGioHang> */}
+            <HienThiGioHang></HienThiGioHang>
             <GioHang sanpham={sanPham}></GioHang>
           </div>
         }></Route>
+        <Route path="/thanhtoan" element={
+          <>
+            <TongTien></TongTien>
+            <ThanhToan></ThanhToan>
+            <HienThiThanhToan getTen={(dl) => getName(dl)} getDiaChi={(dl) => getAddress(dl)} getNumber={(dl) => getSdt(dl)}></HienThiThanhToan>
+          </>}
+        ></Route>
+        <Route path="/hoadon" element={<HoaDon ten={name} diachikh={diachi} sodienthoai={sdt}></HoaDon>}></Route>
+
         <Route path="/lau" element={<Lau sanpham={sanPham}></Lau>}></Route>
         <Route path="/nuong" element={<Nuong sanpham={sanPham}></Nuong>}></Route>
         <Route path="/com" element={<Com sanpham={sanPham}></Com>}></Route>
