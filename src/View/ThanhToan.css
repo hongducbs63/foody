@@ -8,10 +8,11 @@
 }
 
 .tonggia {
-    padding: 50px;
+    padding: 50px 0;
     font-size: 20px;
     background-color: #fff;
     border-radius: 5px;
     color: red;
     font-weight: bold;
+    width: 200px;
 }

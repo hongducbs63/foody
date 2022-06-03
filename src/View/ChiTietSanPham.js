@@ -13,62 +13,11 @@ function ChiTietSanPham(props) {
     let navigate = useNavigate();
     useEffect(() => {
         const chitieta = sanpham.filter(x => x.id == id)[0];
-        // console.log(chitieta);
-        // if(chitieta.)
         console.log(chitieta);
-        // if(chitieta.soluong)
         console.log(chitieta?.soluong);
         setChitiet({ ...chitieta });
     }, [])
-    useEffect(() => {
-        // effect()
-        // setDathang([JSON.parse(localStorage.getItem('id1'))])
-
-    }, [])
-    // async function effect() {
-    //     let json = await axios.get("https://6284ff583060bbd34742d2f3.mockapi.io/giohang")
-    //     setCheck(json.data);
-    //     console.log(json.data);
-    // }
     const HienThi = (chitiet) => {
-        // if (check.find(c => c.id == id)) {
-        //     const requestOptions = {
-        //         method: 'PUT',
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify({
-        //             soluong: parseInt(chitiet.soluong) + 1
-        //             // Gia: parseInt(dathangy.Gia).
-        //         })
-        //     };
-        //     fetch(`https://6284ff583060bbd34742d2f3.mockapi.io/giohang/${id}`, requestOptions)
-        //         .then(response => {
-        //             console.log('sdjfdsbfsd', parseInt(chitiet.soluong) + 1);
-        //             return navigate('/giohang')
-        //         })
-        // }
-        // else {
-        //     async function postData(url, data) {
-        //         // Default options are marked with *
-        //         const response = await fetch(url, {
-        //             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        //             mode: 'cors', // no-cors, *cors, same-origin
-        //             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        //             credentials: 'same-origin', // include, *same-origin, omit
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
-        //             },
-        //             redirect: 'follow', // manual, *follow, error
-        //             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //             body: JSON.stringify(data) // body data type must match "Content-Type" header
-        //         });
-        //         return response.json(); // parses JSON response into native JavaScript objects
-        //     }
-
-        //     postData('https://6284ff583060bbd34742d2f3.mockapi.io/giohang', chitiet)
-
-        //     console.log('san[hasnhdsbfchsd');
-        // }
         var giohang = JSON.parse(localStorage.getItem('giohang'));
         if (giohang) {
             let ok = 0;
@@ -142,12 +91,12 @@ function ChiTietSanPham(props) {
                             <div className="gia">{parseInt(chitiet.Gia).toLocaleString('vi-VN')}đ</div>
                         </div>
                         <div className="soluong">
-                            <span className="chonsoluong">Chọn số lượng : </span>
+                            {/* <span className="chonsoluong">Chọn số lượng : </span>
                             <form className="soluong-form">
                                 <div className="soluong-nut" id="giam">-</div>
                                 <input type="number" id="soluong" defaultValue={0} />
                                 <div className="soluong-nut" id="tang">+</div>
-                            </form>
+                            </form> */}
                         </div>
                         <div className="box-nut">
                             {/* <button className="nut-them nut">Thêm vào giỏ hàng</button> */}

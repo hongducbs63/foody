@@ -56,6 +56,7 @@ function SanPham(props) {
                                 </div>
                                 <button className="nut-tim">Tìm kiếm</button>
                             </div>
+
                             <SanPhamItem sanpham={sanpham}></SanPhamItem>
                         </div>
                     </div>

@@ -193,7 +193,7 @@ footer .footer-tren .phan .tieude {
 
 .trang-chu .danhmuc .danhmuc-list .danhmuc-item {
   width: 20%;
-  padding: 1em 2em;
+  padding: 0.5em 0.4em;
   border: 1px solid #f2f2f2;
 }
 
@@ -214,6 +214,7 @@ footer .footer-tren .phan .tieude {
 .trang-chu .sanpham-list .sanpham-item {
   width: 20%;
   padding: 1em;
+  margin-bottom: 20px;
 }
 
 .trang-chu .sanpham-list .sanpham-item .sanpham {
@@ -227,10 +228,12 @@ footer .footer-tren .phan .tieude {
 
 .trang-chu .sanpham-list .sanpham-item .sanpham .anhdaidien {
   width: 100%;
+  height: 128px;
 }
 
 .trang-chu .sanpham-list .sanpham-item .sanpham .noidung {
   padding: 1em;
+  height: 110px;
 }
 
 .trang-chu .sanpham-list .sanpham-item .sanpham .noidung .duoiten {
@@ -336,7 +339,9 @@ footer .footer-tren .phan .tieude {
 }
 
 .danhsach-sanpham .chiacot .phantrai .box-danhmuc .danhmuc-item .link.hoatdong {
-  color: #ee4d2d;
+  /* color: #ee4d2d; */
+  background-color: #333;
+  color: #fff !important;
 }
 
 .danhsach-sanpham .chiacot .phanphai {
